@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C33F8EBA27F34533009B19F9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EB927F34533009B19F9 /* Model.swift */; };
+		C33F8EBC27F34EC2009B19F9 /* MemoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EBB27F34EC2009B19F9 /* MemoListTableViewController.swift */; };
 		C353EF1E27F1CC6400BCB68D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353EF1D27F1CC6400BCB68D /* AppDelegate.swift */; };
 		C353EF2027F1CC6400BCB68D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353EF1F27F1CC6400BCB68D /* SceneDelegate.swift */; };
-		C353EF2227F1CC6400BCB68D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353EF2127F1CC6400BCB68D /* ViewController.swift */; };
 		C353EF2527F1CC6400BCB68D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C353EF2327F1CC6400BCB68D /* Main.storyboard */; };
 		C353EF2727F1CC6500BCB68D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C353EF2627F1CC6500BCB68D /* Assets.xcassets */; };
 		C353EF2A27F1CC6500BCB68D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C353EF2827F1CC6500BCB68D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C33F8EB927F34533009B19F9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C33F8EBB27F34EC2009B19F9 /* MemoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewController.swift; sourceTree = "<group>"; };
 		C353EF1A27F1CC6400BCB68D /* simpleMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpleMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C353EF1D27F1CC6400BCB68D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C353EF1F27F1CC6400BCB68D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C353EF2127F1CC6400BCB68D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C353EF2427F1CC6400BCB68D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C353EF2627F1CC6500BCB68D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C353EF2927F1CC6500BCB68D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C33F8EB827F3450D009B19F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C33F8EB927F34533009B19F9 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C353EF1127F1CC6400BCB68D = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +66,14 @@
 		C353EF1C27F1CC6400BCB68D /* simpleMemo */ = {
 			isa = PBXGroup;
 			children = (
+				C33F8EB827F3450D009B19F9 /* Model */,
 				C353EF1D27F1CC6400BCB68D /* AppDelegate.swift */,
 				C353EF1F27F1CC6400BCB68D /* SceneDelegate.swift */,
-				C353EF2127F1CC6400BCB68D /* ViewController.swift */,
 				C353EF2327F1CC6400BCB68D /* Main.storyboard */,
 				C353EF2627F1CC6500BCB68D /* Assets.xcassets */,
 				C353EF2827F1CC6500BCB68D /* LaunchScreen.storyboard */,
 				C353EF2B27F1CC6500BCB68D /* Info.plist */,
+				C33F8EBB27F34EC2009B19F9 /* MemoListTableViewController.swift */,
 			);
 			path = simpleMemo;
 			sourceTree = "<group>";
@@ -138,9 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C353EF2227F1CC6400BCB68D /* ViewController.swift in Sources */,
+				C33F8EBA27F34533009B19F9 /* Model.swift in Sources */,
 				C353EF1E27F1CC6400BCB68D /* AppDelegate.swift in Sources */,
 				C353EF2027F1CC6400BCB68D /* SceneDelegate.swift in Sources */,
+				C33F8EBC27F34EC2009B19F9 /* MemoListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

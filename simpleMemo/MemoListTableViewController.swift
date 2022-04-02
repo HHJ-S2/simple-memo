@@ -8,7 +8,15 @@
 import UIKit
 
 class MemoListTableViewController: UITableViewController {
-
+    
+    let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,13 +35,19 @@ class MemoListTableViewController: UITableViewController {
         return Memo.dummyMemoList.count
     }
 
+    // 개별 셀을 화면에 표시할 때마다 반복적으로 호출
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // indexPath로 셀 위치를 불러옴
+        
+        // 사용할 셀 디자인 지정
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
+        // 표시할 데이터를 indexPath.row로 가져오고 타이틀과 서브타이틀을 지정함
         let target = Memo.dummyMemoList[indexPath.row]
+        
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = target.insertDate.description
+        // 상단의 DateFormatter 를 사용하여 지정한 날짜 포멧 문자열로 변환
+        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
 
         return cell
     }

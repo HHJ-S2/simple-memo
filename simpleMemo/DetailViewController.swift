@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    // 이전 화면에서 전달한 메모를 할당할 변수
     var memo: Memo?
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -37,17 +38,21 @@ class DetailViewController: UIViewController {
 
 }
 
+// 데이터 소스 연결을 위한 익스텐션
 extension DetailViewController: UITableViewDataSource {
+    // 프로토콜의 필수 메소드
+    // 테이블 뷰가 표시할 셀의 숫자 prototype cells 개수만큼 (텍스트, 날짜 총 2)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
+    // 프로토콜의 필수 메소드
     // 테이블 뷰가 어떤 셀을 표시할지 지정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row{
-            
-        // 첫번째 셀에는 메모 텍스트를 표시
+        switch indexPath.row {
+        // 첫번째 셀에는 메모 텍스트를 표시 (셀의 identifier 지정)
         case 0:
+            // 첫번째 셀을 저장해서 cell 에 저장
             let cell = tableView.dequeueReusableCell(withIdentifier: "memoCell", for: indexPath)
             cell.textLabel?.text = memo?.content
             

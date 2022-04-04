@@ -8,7 +8,6 @@
 import UIKit
 
 class MemoListTableViewController: UITableViewController {
-    
     let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
@@ -34,6 +33,9 @@ class MemoListTableViewController: UITableViewController {
         }
     }
     
+    // segue가 연결된 화면을 생성하고 화면을 전환하기 직전에 호출
+    // 첫번째 파라미터로 현재 실행중인 segue를 통해 목록화면과 보기화면에 접근
+    // 두번째 파라미터를 활용해 몇번째 셀인지 체크
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             if let vc = segue.destination as? DetailViewController {

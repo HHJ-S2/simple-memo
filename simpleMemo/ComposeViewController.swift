@@ -23,9 +23,9 @@ class ComposeViewController: UIViewController {
                 return
             }
         
-        // Model 의 Memo 클래스에 접근
-        let newMemo = Memo(content: memo)
-        Memo.dummyMemoList.append(newMemo)
+//         Model 의 Memo 클래스에 접근
+//        let newMemo = Memo(content: memo)
+//        Memo.dummyMemoList.append(newMemo)
         
         NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
         

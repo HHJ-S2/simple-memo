@@ -9,8 +9,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    // 이전 화면에서 전달한 메모를 할당할 변수
-    var memo: Memo?
+    @IBOutlet weak var memoTableView: UITableView!
+    
+    var memo: Memo? // 이전 화면에서 전달한 새로운 메모를 할당할 변수
     let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
@@ -18,11 +19,28 @@ class DetailViewController: UIViewController {
         f.locale = Locale(identifier: "Ko_kr")
         return f
     }()
+    
+    // 메모 수정에서 접근 한 경우 segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination.children.first as? ComposeViewController {
+            vc.editTarget = memo
+        }
+    }
+    
+    var token: NSObjectProtocol?
+    
+    // 옵저버 해제
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 옵저버 추가
+        token = NotificationCenter.default.addObserver(forName: ComposeViewController.memoDidChange, object: nil, queue: OperationQueue.main, using: {[weak self] (noti) in self?.memoTableView.reloadData()})
     }
     
 

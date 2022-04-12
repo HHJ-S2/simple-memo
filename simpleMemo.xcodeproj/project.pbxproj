@@ -12,6 +12,8 @@
 		C33F8EBE27F87679009B19F9 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EBD27F87679009B19F9 /* ComposeViewController.swift */; };
 		C33F8EC027F87AAB009B19F9 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EBF27F87AAB009B19F9 /* UIViewController+Alert.swift */; };
 		C33F8EC227F8846B009B19F9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EC127F8846B009B19F9 /* DetailViewController.swift */; };
+		C33F8EC527FB326C009B19F9 /* simpleMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EC327FB326C009B19F9 /* simpleMemo.xcdatamodeld */; };
+		C33F8EC827FB33DC009B19F9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F8EC727FB33DC009B19F9 /* DataManager.swift */; };
 		C353EF1E27F1CC6400BCB68D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353EF1D27F1CC6400BCB68D /* AppDelegate.swift */; };
 		C353EF2027F1CC6400BCB68D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C353EF1F27F1CC6400BCB68D /* SceneDelegate.swift */; };
 		C353EF2527F1CC6400BCB68D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C353EF2327F1CC6400BCB68D /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		C33F8EBD27F87679009B19F9 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		C33F8EBF27F87AAB009B19F9 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		C33F8EC127F8846B009B19F9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C33F8EC427FB326C009B19F9 /* simpleMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simpleMemo.xcdatamodel; sourceTree = "<group>"; };
+		C33F8EC727FB33DC009B19F9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C353EF1A27F1CC6400BCB68D /* simpleMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpleMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C353EF1D27F1CC6400BCB68D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C353EF1F27F1CC6400BCB68D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,9 +53,16 @@
 			isa = PBXGroup;
 			children = (
 				C33F8EB927F34533009B19F9 /* Model.swift */,
-				C33F8EBF27F87AAB009B19F9 /* UIViewController+Alert.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C33F8EC627FB33C7009B19F9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C33F8EC727FB33DC009B19F9 /* DataManager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C353EF1127F1CC6400BCB68D = {
@@ -73,6 +84,7 @@
 		C353EF1C27F1CC6400BCB68D /* simpleMemo */ = {
 			isa = PBXGroup;
 			children = (
+				C33F8EC627FB33C7009B19F9 /* Data */,
 				C33F8EB827F3450D009B19F9 /* Model */,
 				C353EF1D27F1CC6400BCB68D /* AppDelegate.swift */,
 				C353EF1F27F1CC6400BCB68D /* SceneDelegate.swift */,
@@ -83,6 +95,8 @@
 				C33F8EBB27F34EC2009B19F9 /* MemoListTableViewController.swift */,
 				C33F8EBD27F87679009B19F9 /* ComposeViewController.swift */,
 				C33F8EC127F8846B009B19F9 /* DetailViewController.swift */,
+				C33F8EBF27F87AAB009B19F9 /* UIViewController+Alert.swift */,
+				C33F8EC327FB326C009B19F9 /* simpleMemo.xcdatamodeld */,
 			);
 			path = simpleMemo;
 			sourceTree = "<group>";
@@ -165,6 +179,8 @@
 				C353EF2027F1CC6400BCB68D /* SceneDelegate.swift in Sources */,
 				C33F8EBC27F34EC2009B19F9 /* MemoListTableViewController.swift in Sources */,
 				C33F8EC227F8846B009B19F9 /* DetailViewController.swift in Sources */,
+				C33F8EC827FB33DC009B19F9 /* DataManager.swift in Sources */,
+				C33F8EC527FB326C009B19F9 /* simpleMemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +404,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C33F8EC327FB326C009B19F9 /* simpleMemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C33F8EC427FB326C009B19F9 /* simpleMemo.xcdatamodel */,
+			);
+			currentVersion = C33F8EC427FB326C009B19F9 /* simpleMemo.xcdatamodel */;
+			path = simpleMemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C353EF1227F1CC6400BCB68D /* Project object */;
 }

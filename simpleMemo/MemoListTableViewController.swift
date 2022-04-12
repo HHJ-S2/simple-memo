@@ -8,7 +8,6 @@
 import UIKit
 
 class MemoListTableViewController: UITableViewController {
-    
     let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .long
@@ -17,8 +16,12 @@ class MemoListTableViewController: UITableViewController {
         return f
     }()
     
+    // lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        DataManager.shared.fetchMemo()
+        tableView.reloadData()
         
 //        새로운 메모를 작성한 뒤 데이터 업데이트 (뷰가 page sheet 일 경우 작동하지않음)
 //        tableView.reloadData()
@@ -34,10 +37,13 @@ class MemoListTableViewController: UITableViewController {
         }
     }
     
+    // segue가 연결된 화면을 생성하고 화면을 전환하기 직전에 호출
+    // 첫번째 파라미터로 현재 실행중인 segue를 통해 목록화면과 보기화면에 접근
+    // 두번째 파라미터를 활용해 몇번째 셀인지 체크
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             if let vc = segue.destination as? DetailViewController {
-                vc.memo = Memo.dummyMemoList[indexPath.row]
+                vc.memo = DataManager.shared.memoList[indexPath.row]
             }
         }
     }
@@ -61,7 +67,7 @@ class MemoListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Memo.dummyMemoList.count
+        return DataManager.shared.memoList.count
     }
 
     // 개별 셀을 화면에 표시할 때마다 반복적으로 호출
@@ -72,11 +78,11 @@ class MemoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         // 표시할 데이터를 indexPath.row로 가져오고 타이틀과 서브타이틀을 지정함
-        let target = Memo.dummyMemoList[indexPath.row]
+        let target = DataManager.shared.memoList[indexPath.row]
         
         cell.textLabel?.text = target.content
         // 상단의 DateFormatter 를 사용하여 지정한 날짜 포멧 문자열로 변환
-        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
+        cell.detailTextLabel?.text = formatter.string(for: target.insertDate)
 
         return cell
     }

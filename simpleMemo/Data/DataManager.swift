@@ -21,9 +21,10 @@ class DataManager {
     
     var memoList = [Memo]()
     
+    // 메모 목록 데이터 fetch
     func fetchMemo() {
         let request: NSFetchRequest<Memo> = Memo.fetchRequest()
-        let sortByDateDesc = NSSortDescriptor(key: "insertDate", ascending: false)
+        let sortByDateDesc = NSSortDescriptor(key: "insertDate", ascending: false) // 날짜를 기준으로 내림차순 정렬
         
         request.sortDescriptors = [sortByDateDesc]
         
@@ -32,6 +33,18 @@ class DataManager {
         } catch {
            print(error)
         }
+    }
+    
+    // 새로운 메모 추가
+    func addNewMemo(_ memo: String?) {
+        let newMemo = Memo(context: mainContext)
+        newMemo.content = memo
+        newMemo.insertDate = Date()
+        
+        // 메모리스트 배열 첫번째에 새로운 메모 추가
+        memoList.insert(newMemo, at: 0)
+        
+        saveContext()
     }
     
     lazy var persistentContainer: NSPersistentContainer = {

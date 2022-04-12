@@ -16,6 +16,7 @@ class MemoListTableViewController: UITableViewController {
         return f
     }()
     
+    // lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

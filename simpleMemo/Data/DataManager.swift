@@ -47,6 +47,15 @@ class DataManager {
         saveContext()
     }
     
+    // 메모 삭제
+    func deleteMemo(_ memo: Memo?) {
+        if let memo = memo {
+            // context 가 제공하는 delete 메소드를 호출 한 뒤에 저장
+            mainContext.delete(memo)
+            saveContext()
+        }
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "simpleMemo")
         container.loadPersistentStores(completionHandler: {

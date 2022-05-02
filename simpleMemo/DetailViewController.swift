@@ -20,6 +20,26 @@ class DetailViewController: UIViewController {
         return f
     }()
     
+    @IBAction func deleteMemo(_ sender: Any) {
+        let alert = UIAlertController(title: "삭제 확인", message: "메모를 삭제할까요?", preferredStyle: .alert)
+        
+        // 두번째 style 파라미터로 .destructive 를 전달하면 텍스트가 빨간색으로 표시됨
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) { [weak self] (action) in
+            DataManager.shared.deleteMemo(self?.memo) // 메모 삭제 실행
+            // 네비게이션 컨트롤러에 접근해서 현재 화면을 pop(식제)
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        // 작성한 alert을 컨트롤러에 추가
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        // 경고창을 화면에 표시
+        present(alert, animated: true, completion: nil)
+    }
+    
     // 메모 수정에서 접근 한 경우 segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination.children.first as? ComposeViewController {
